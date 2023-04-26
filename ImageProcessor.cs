@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Xml.Serialization;
+
 namespace FilterExercise
 {
     public class ImageProcessor
@@ -102,5 +104,8 @@ namespace FilterExercise
                 Console.WriteLine();
             }
         }
+
+
+
     }
 }
