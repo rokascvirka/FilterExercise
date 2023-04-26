@@ -10,7 +10,7 @@ namespace FilterExercise
 {
     public class MatrixProcessor
     {
-        public byte[,] Matrix { get; set; }
+        private byte[,] Matrix { get; set; }
 
         public MatrixProcessor(byte[,] matrix)
         {
