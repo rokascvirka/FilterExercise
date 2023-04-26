@@ -11,49 +11,16 @@ namespace FilterExercise
     public class MatrixProcessor
     {
         private byte[,] Matrix { get; set; }
-
-        public MatrixProcessor(byte[,] matrix)
-        {
-            Matrix = matrix;
-        }
-
         public byte this[int index]
         {
             get { return ReturnIndexValue(index) ; }
             set { SetIndexValue(index, value);}
         }
-
         public byte[] this[Range range] => ReturnValuesInRange(range);
 
-
-        private byte[] ReturnValuesInRange(Range range)
+        public MatrixProcessor(byte[,] matrix)
         {
-            var matrix1d = ConvertToArray(Matrix);
-            return matrix1d[range];
-        } 
-
-        private byte[] ConvertToArray(byte[,] byteArray)
-        {
-            return Matrix.Cast<byte>().ToArray();
-        }
-
-        private byte ReturnIndexValue(int index)
-        {
-            int rows = Matrix.GetLength(0);
-            int cols = Matrix.GetLength(1);
-            int rowIndex = index / rows;
-            int columnIndex = index % cols;
-
-            return Matrix[rowIndex, columnIndex];
-        }
-
-        private void SetIndexValue(int index, byte value)
-        {
-            int rows = Matrix.GetLength(0);
-            int cols = Matrix.GetLength(1);
-            int rowIndex = index / rows;
-            int columnIndex = index % cols;
-            Matrix[rowIndex, columnIndex] = value;
+            Matrix = matrix;
         }
 
         public static byte[,] GenerateMatrix()
@@ -86,6 +53,35 @@ namespace FilterExercise
                     matrix[i, j] = randomByte;
                 }
             return matrix;
+        }
+
+        private byte ReturnIndexValue(int index)
+        {
+            int rows = Matrix.GetLength(0);
+            int cols = Matrix.GetLength(1);
+            int rowIndex = index / rows;
+            int columnIndex = index % cols;
+
+            return Matrix[rowIndex, columnIndex];
+        }
+
+        private void SetIndexValue(int index, byte value)
+        {
+            int rows = Matrix.GetLength(0);
+            int cols = Matrix.GetLength(1);
+            int rowIndex = index / rows;
+            int columnIndex = index % cols;
+            Matrix[rowIndex, columnIndex] = value;
+        }
+        private byte[] ReturnValuesInRange(Range range)
+        {
+            var matrix1d = ConvertToArray(Matrix);
+            return matrix1d[range];
+        }
+
+        private byte[] ConvertToArray(byte[,] byteArray)
+        {
+            return Matrix.Cast<byte>().ToArray();
         }
     }
 
