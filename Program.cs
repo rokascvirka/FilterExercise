@@ -14,7 +14,7 @@ namespace FilterExercise
 
             var converted = ImageProcessor.ConvertToByteArray(image);
 
-            var filtered = ImageProcessor.CountNoise(converted);
+            var filtered = ImageProcessor.ApplyAverageFilter(converted);
 
             var output = ImageProcessor.ConvertToBitmap(filtered);
          //   ImageProcessor.PrintByteArray(converted);

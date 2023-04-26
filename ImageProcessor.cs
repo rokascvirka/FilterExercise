@@ -49,7 +49,7 @@ namespace FilterExercise
             return image;
         }
 
-        public static byte[,] CountNoise(byte[,] byteArray)
+        public static byte[,] ApplyAverageFilter(byte[,] byteArray)
         {
             int height = byteArray.GetLength(0);
             int width = byteArray.GetLength(1);
