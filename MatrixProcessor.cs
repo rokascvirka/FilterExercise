@@ -18,6 +18,11 @@ namespace FilterExercise
         }
         public byte[] this[Range range] => ReturnValuesInRange(range);
 
+        public int this[int row, int col]
+        {
+            get { return ReturnAbsoluteIndex(row, col); }
+        }
+
         public MatrixProcessor(byte[,] matrix)
         {
             Matrix = matrix;
@@ -82,6 +87,19 @@ namespace FilterExercise
         private byte[] ConvertToArray(byte[,] byteArray)
         {
             return Matrix.Cast<byte>().ToArray();
+        }
+
+        private int ReturnAbsoluteIndex(int row, int column)
+        {
+            int totalCol = Matrix.GetLength(1);
+            int absoluteIndex = row * totalCol + column;
+            return absoluteIndex;
+        }
+
+        private void SetAbsoluteValue(int row, int column, int value)
+        {
+            int absoluteIndex = ReturnAbsoluteIndex(row, column);
+            absoluteIndex = value;
         }
     }
 

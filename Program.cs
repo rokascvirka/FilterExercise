@@ -38,6 +38,12 @@ namespace FilterExercise
 
             Console.WriteLine(String.Join(",", valuesInRange));
 
+
+            var absoluteTest = new MatrixProcessor(MatrixProcessor.GenerateMatrix());
+
+            Console.WriteLine(absoluteTest[2,2]);
+            //Console.WriteLine(absoluteTest[5]);
+
         }
     }
 }
